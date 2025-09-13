@@ -167,7 +167,7 @@ class PeopleCounterClient:
                     self.trackers = []
                     
                     # Create blob and run inference
-                    blob = cv2.dnn.blobFromImage(frame, 0.007843, (W, H), 127.5)
+                    blob = cv2.dnn.blobFromImage(frame, 0.007843, (300, 300), 127.5)
                     self.net.setInput(blob)
                     detections = self.net.forward()
                     
