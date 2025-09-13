@@ -68,11 +68,13 @@ export function useWebSocket() {
       case 'passenger_count_updated':
         // Invalidate bus data to trigger refetch
         queryClient.invalidateQueries({ queryKey: ['/api/buses'] });
+        queryClient.invalidateQueries({ queryKey: ['/api/buses/active'] });
         queryClient.invalidateQueries({ queryKey: ['/api/dashboard/stats'] });
         break;
       
       case 'bus_created':
         queryClient.invalidateQueries({ queryKey: ['/api/buses'] });
+        queryClient.invalidateQueries({ queryKey: ['/api/buses/active'] });
         queryClient.invalidateQueries({ queryKey: ['/api/dashboard/stats'] });
         break;
       
