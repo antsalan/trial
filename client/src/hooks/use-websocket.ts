@@ -70,6 +70,9 @@ export function useWebSocket() {
         queryClient.invalidateQueries({ queryKey: ['/api/buses'] });
         queryClient.invalidateQueries({ queryKey: ['/api/buses/active'] });
         queryClient.invalidateQueries({ queryKey: ['/api/dashboard/stats'] });
+        // Invalidate alert data since alerts can be created during passenger count updates
+        queryClient.invalidateQueries({ queryKey: ['/api/alerts'] });
+        queryClient.invalidateQueries({ queryKey: ['/api/alerts/unread'] });
         break;
       
       case 'bus_created':
