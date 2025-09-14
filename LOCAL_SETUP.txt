@@ -1,0 +1,66 @@
+Bus Passenger Monitoring System - Local Setup Guide
+==================================================
+
+REQUIREMENTS:
+- Node.js 18+ with npm
+- Python 3.8+ 
+- OpenCV, dlib, numpy, scipy, imutils libraries
+- Git (optional)
+
+QUICK START:
+============
+
+1. INSTALL DEPENDENCIES:
+   npm install
+
+2. START WEB SERVER:
+   npm run dev
+   (Server runs at http://localhost:5000)
+
+3. RUN PASSENGER COUNTER:
+   
+   For test video:
+   ./run_test_video.sh (Linux/Mac)
+   run_test_video.bat (Windows)
+   
+   For live webcam:
+   ./run_webcam.sh (Linux/Mac) 
+   run_webcam.bat (Windows)
+
+4. OPEN BROWSER:
+   Go to http://localhost:5000
+
+MANUAL COMMANDS:
+===============
+
+Web Server:
+npm run dev
+
+Test Video:
+python3 people_counter_client.py --bus_id BUS-247 --input attached_assets/test_1_1757778577870.mp4 --model MobileNetSSD_deploy.caffemodel --server_url http://localhost:5000
+
+Live Webcam:
+python3 people_counter_client.py --bus_id BUS-247 --model MobileNetSSD_deploy.caffemodel --server_url http://localhost:5000
+
+PYTHON DEPENDENCIES:
+===================
+pip install opencv-python numpy scipy imutils requests dlib
+
+NAVIGATION:
+===========
+- Dashboard: Real-time overview
+- Buses: Fleet management  
+- Stations: Station monitoring
+- Dispatch: Route coordination
+- Alerts: System notifications
+- Settings: Configuration
+
+USAGE:
+======
+1. Start web server first
+2. Run Python client with video or webcam
+3. Watch passenger detection in video window
+4. See live updates on web dashboard
+5. Press 'q' in video window to stop
+
+The system counts passengers crossing the yellow line and updates the dashboard in real-time every 5 seconds.
