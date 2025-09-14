@@ -12,19 +12,25 @@ import Alerts from "@/pages/alerts";
 import Settings from "@/pages/settings";
 import NotFound from "@/pages/not-found";
 
+function LayoutWrapper() {
+  return (
+    <Switch>
+      <Route path="/" component={Dashboard} />
+      <Route path="/dashboard" component={Dashboard} />
+      <Route path="/buses" component={Buses} />
+      <Route path="/stations" component={Stations} />
+      <Route path="/dispatch" component={Dispatch} />
+      <Route path="/alerts" component={Alerts} />
+      <Route path="/settings" component={Settings} />
+      <Route component={NotFound} />
+    </Switch>
+  );
+}
+
 function Router() {
   return (
     <Layout>
-      <Switch>
-        <Route path="/" component={Dashboard} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/buses" component={Buses} />
-        <Route path="/stations" component={Stations} />
-        <Route path="/dispatch" component={Dispatch} />
-        <Route path="/alerts" component={Alerts} />
-        <Route path="/settings" component={Settings} />
-        <Route component={NotFound} />
-      </Switch>
+      <LayoutWrapper />
     </Layout>
   );
 }
